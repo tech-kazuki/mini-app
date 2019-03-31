@@ -1,5 +1,12 @@
-= form_with model: @content do |form|
-  = form.text_field :title, type: :string
-  = form.text_field :content
-  = form.file_field :image
-  = form.submit
+.form-field
+  = form_with model: Content.new, local: true do |f|
+    .form-field__title
+      %p Title
+      = f.text_field :title
+    .form-field__content
+      %p Content
+      = f.text_field :content
+    .form-field__image
+      = f.file_field :image
+    .form-field__btm
+      = f.submit

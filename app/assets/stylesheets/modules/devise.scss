@@ -1,0 +1,16 @@
+.devise-body {
+  display: flex;
+  justify-content: space-around;
+  &__title {
+    font-size: 40px;
+  }
+  &__right {
+    width: 60vw;
+    padding-right: 180px;
+    .new_user {
+    }
+    .devise-links {
+      margin: 0 auto;
+    }
+  }
+}
