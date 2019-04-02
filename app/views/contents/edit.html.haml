@@ -1,5 +1,5 @@
 .form-field
-  = form_with model: Content.new, local: true do |f|
+  = form_with model: Content.find(@content.id), local: true do |f|
     .form-field__title
       = f.label :Title
       = f.text_field :title

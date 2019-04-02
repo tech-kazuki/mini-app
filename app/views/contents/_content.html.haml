@@ -1,7 +1,9 @@
 .content
   .content-header
-    %h3.content-header__title Title
-    = link_to 'Edit', root_path, class: "content-header__edit"
+    %h3.content-header__title
+      = content.title
+    = link_to 'Edit', edit_content_path(content), class: "content-header__edit" if user_signed_in? && current_user.id == content.user.id
+    = link_to 'Delete', method: :delete, class: "content-header__delete" if user_signed_in? && current_user.id == content.user.id
   %p.content__text
-    これはテストテキストですこれはテストテキストですこれはテストテキストですこれはテストテキストですこれはテストテキストですこれはテストテキストですこれはテストテキストですこれはテストテキストですこれはテストテキストですこれはテストテキストですこれはテストテキストですこれはテストテキストですこれはテストテキストですこれはテストテキストですこれはテストテキストですこれはテストテキストですこれはテストテキストですこれはテストテキストですこれはテストテキストですこれはテストテキストです
+    = simple_format(content.content)
   = link_to 'COMMENT', root_path, class: "content__comment"
