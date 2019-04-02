@@ -1,0 +1,13 @@
+.form-field
+  = form_with model: Content.find(@content.id), local: true do |f|
+    .form-field__title
+      = f.label :Title
+      = f.text_field :title
+    .form-field__content
+      = f.label :Content
+      = f.text_area :content
+    .form-field__image
+      = f.label :Image_URL
+      = f.text_field :image
+    .form-field__btm
+      = f.submit value: "Update", class: "submit_btm"

@@ -1,6 +1,13 @@
+@font-face {
+  font-family: 'ほのか';
+  src: font-url('font_1_honokamarugo_1.1.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 @import 'config/reset';
 @import 'modules/contents';
 @import 'modules/header';
 @import 'modules/footer';
 @import 'modules/devise';
-@import 'modules/form_field'
+@import 'modules/form_field';
+@import 'modules/create_edit';

@@ -2,12 +2,8 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title MiniApp
+    %title MiniBlog
     %style{type: "text/scss", href: "./application.scss"}
-    / Compiled and minified CSS
-    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css", :rel => "stylesheet"}/
-    / Compiled and minified JavaScript
-    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"}
 
     %script{:crossorigin => "anonymous", :integrity => "sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=", :src => "https://code.jquery.com/jquery-3.3.1.js"}
     = csrf_meta_tags
@@ -15,18 +11,17 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 %body
-  %header
+  .header
     .header__title
-      = link_to "Kazuki's BLOG", root_path, {class: "header__title__logo"}
-    %ul.header__right
-      %li.header-right__links
-        = link_to 'サインイン', new_user_registration_path
-      %li.header-right__links
-        = link_to 'ログイン', new_user_session_path
-      %li.header-right__links
-        = link_to 'ログアウト', destroy_user_session_path, method: :delete
+      = link_to "Kazuki's BLOG", root_path, class: "header__title__logo"
+    .header__links
+      = link_to 'サインイン', new_user_registration_path, class: "header__links__link" unless user_signed_in?
+      = link_to 'ログイン', new_user_session_path, class: "header__links__link" unless user_signed_in?
+      = link_to 'ログアウト', destroy_user_session_path, class: "header__links__link", method: :delete if user_signed_in?
     .new-post
-      = link_to '新規投稿', new_content_path
+      = link_to '新規投稿', new_content_path, class: "new-post__link"
+  = render 'layouts/flash'
   = yield
   %footer
+    %P Copyright Kazuki's BLOG 2019.
 

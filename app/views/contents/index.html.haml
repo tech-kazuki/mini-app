@@ -1,2 +1,3 @@
 .main-contents
-  = render "contents/content"
+  - @contents.each do |content|
+    = render partial: 'content', locals: { content: content }
