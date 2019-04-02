@@ -3,7 +3,7 @@
     %h3.content-header__title
       = content.title
     = link_to 'Edit', edit_content_path(content), class: "content-header__edit" if user_signed_in? && current_user.id == content.user.id
-    = link_to 'Delete', '/contents/#{content.id}/', method: :delete, class: "content-header__delete" if user_signed_in? && current_user.id == content.user.id
+    = link_to 'Delete', content_path(content), method: :delete, class: "content-header__delete" if user_signed_in? && current_user.id == content.user.id
   .content__text
     = simple_format(content.content)
   = link_to 'MORE', root_path, class: "content__show"

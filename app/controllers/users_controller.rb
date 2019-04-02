@@ -7,14 +7,6 @@ class UsersController < ApplicationController
   end
 
   def create
+
   end
-
-  def destroy
-  end
-
-  private
-
-  def user_params
-  end
-
 end

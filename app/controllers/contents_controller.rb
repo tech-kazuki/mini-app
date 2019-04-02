@@ -24,6 +24,12 @@ class ContentsController < ApplicationController
     redirect_to action: :index
   end
 
+  def destroy
+    content = Content.find(params[:id])
+    content.destroy
+    redirect_to action: :index
+  end
+
   private
   def content_params
     params.require(:content).permit(:content, :image, :title)

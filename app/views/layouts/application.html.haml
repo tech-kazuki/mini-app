@@ -20,6 +20,7 @@
       = link_to 'ログアウト', destroy_user_session_path, class: "header__links__link", method: :delete if user_signed_in?
     .new-post
       = link_to '新規投稿', new_content_path, class: "new-post__link"
+  = render 'layouts/flash'
   = yield
   %footer
     %P Copyright Kazuki's BLOG 2019.
