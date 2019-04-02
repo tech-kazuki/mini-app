@@ -7,6 +7,7 @@
       = f.label :Content
       = f.text_area :content
     .form-field__image
-      = f.file_field :image
+      = f.label :Image_URL
+      = f.text_field :image
     .form-field__btm
-      = f.submit
+      = f.submit value: "Update", class: "submit_btm"

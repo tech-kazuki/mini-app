@@ -1,12 +1,11 @@
 class ContentsController < ApplicationController
 
-  before_action :move_to_index, except: :index
-
   def index
-    @contents = Content.includes(:user).all
+    @contents = Content.includes(:user).all.order("created_at DESC")
   end
 
   def new
+    redirect_to new_user_session_path unless user_signed_in?
   end
 
   def create
@@ -28,9 +27,5 @@ class ContentsController < ApplicationController
   private
   def content_params
     params.require(:content).permit(:content, :image, :title)
-  end
-
-  def move_to_index
-    redirect_to action: :index unless user_signed_in?
   end
 end

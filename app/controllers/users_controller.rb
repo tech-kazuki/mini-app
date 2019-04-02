@@ -15,7 +15,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.
   end
 
 end

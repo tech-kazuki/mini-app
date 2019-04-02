@@ -1,19 +1,42 @@
-header {
+.header {
   width: 100%;
   height: 70px;
   background-color: #316745;
   position: fixed;
   top: 0;
   z-index: 1;
+  display: flex;
   &__title {
+    flex-grow: 1;
     &__logo {
       font-size: 50px;
       color: #ffffff;
+      text-decoration: none;
+      line-height: 65px;
+      margin-left: 10px;
     }
   }
-  &__right {
-    &__links {
-
+  &__links {
+    font-size: 20px;
+    line-height: 70px;
+    &__link {
+      text-decoration: none;
+      color: #7ebeab;
+      margin-right: 10px;
+    }
+  }
+  .new-post {
+    width: 100px;
+    text-align: center;
+    margin: auto 20px;
+    height: 30px;
+    border: 2px solid;
+    border-color: #93b69c #444444 #444444 #93b69c;
+    background-color: #028760;
+    &__link {
+      text-decoration: none;
+      color: #fff;
+      line-height: 25px;
     }
   }
 }

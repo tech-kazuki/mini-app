@@ -6,12 +6,28 @@
     font-size: 40px;
   }
   &__right {
-    width: 60vw;
-    padding-right: 180px;
-    .new_user {
+    padding-right: 100px;
+    .field {
+      margin-bottom: 15px;
+      .devise_field {
+        width: 60vw;
+        height: 40px;
+      }
     }
-    .devise-links {
-      margin: 0 auto;
-    }
+  }
+}
+
+.devise-links {
+  border: 1px solid green;
+  margin-top: 10px;
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  line-height: 25px;
+  border-radius: 5px;
+  &__link {
+    font-size: 20px;
+    text-decoration: none;
+    color: #f6ad49;
   }
 }
