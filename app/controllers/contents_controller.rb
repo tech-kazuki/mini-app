@@ -8,6 +8,11 @@ class ContentsController < ApplicationController
     redirect_to new_user_session_path unless user_signed_in?
   end
 
+  def show
+    @content = Content.find(params[:id])
+    @comments = @content.comments.includes(:user)
+  end
+
   def create
     Content.create(content: content_params[:content], image: content_params[:image], title: content_params[:title], user_id: current_user.id)
   end

@@ -1,0 +1,24 @@
+.main-contents
+  .content
+    .content-header
+      %h3.content-header__title
+        = @content.title
+      .content-header__user_name
+        = "Nickname：" + @content.user.nickname
+      = link_to 'Edit', edit_content_path(@content), class: "content-header__edit" if user_signed_in? && current_user.id == @content.user.id
+      = link_to 'Delete', content_path(@content), method: :delete, class: "content-header__delete" if user_signed_in? && current_user.id == @content.user.id
+    .content__text
+      = simple_format(@content.content)
+  .comment_form
+    = form_with url: content_comments_path(@content) do |f|
+      = f.text_area :comment, class: "comment_field", placeholder: "コメントを書く"
+      = f.submit value: "Comment", class: "button"
+  .comments
+    %p.comments__title コメント一覧
+    .comment
+      - @comments.each do |comment|
+        .comment__contents
+          .comment__contents__user
+            = "From：" + comment.user.nickname
+          %p.comment__contents__text
+            = comment.comment

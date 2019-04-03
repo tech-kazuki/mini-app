@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'contents#index'
-  resources :contents, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :contents do
+    resources :comments, only: [:create]
+  end
 end

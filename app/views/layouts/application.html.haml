@@ -13,7 +13,7 @@
 %body
   .header
     .header__title
-      = link_to "Kazuki's BLOG", root_path, class: "header__title__logo"
+      = link_to "Our's BLOG", root_path, class: "header__title__logo"
     .header__links
       = link_to 'サインイン', new_user_registration_path, class: "header__links__link" unless user_signed_in?
       = link_to 'ログイン', new_user_session_path, class: "header__links__link" unless user_signed_in?
