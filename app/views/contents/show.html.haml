@@ -9,16 +9,17 @@
       = link_to 'Delete', content_path(@content), method: :delete, class: "content-header__delete" if user_signed_in? && current_user.id == @content.user.id
     .content__text
       = simple_format(@content.content)
+      %img(src="#{@content.image}" width="700px")
   .comment_form
     = form_with url: content_comments_path(@content) do |f|
-      = f.text_area :comment, class: "comment_field", placeholder: "コメントを書く"
-      = f.submit value: "Comment", class: "button"
+      = f.text_area :comment, class: "comment_field", placeholder: "ご意見を書く" if user_signed_in?
+      = f.submit value: "ご意見", class: "button" if user_signed_in?
   .comments
-    %p.comments__title コメント一覧
+    %p.comments__title ご意見一覧
     .comment
       - @comments.each do |comment|
         .comment__contents
           .comment__contents__user
-            = "From：" + comment.user.nickname
+            = "@" + comment.user.nickname
           %p.comment__contents__text
             = comment.comment

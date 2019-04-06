@@ -3,9 +3,12 @@
     %h3.content-header__title
       = content.title
     .content-header__user_name
-      = "Nickname：" + content.user.nickname
+      = "@" + content.user.nickname
     = link_to 'Edit', edit_content_path(content), class: "content-header__edit" if user_signed_in? && current_user.id == content.user.id
     = link_to 'Delete', content_path(content), method: :delete, class: "content-header__delete" if user_signed_in? && current_user.id == content.user.id
   .content__text
     = simple_format(content.content)
-  = link_to 'MORE', content_path(content), class: "content__show"
+    %img(src="#{content.image}" width="700px")
+  %time(datetime = "#{content.created_at.strftime("%Y-%m-%d %H:%M")}")
+    = content.created_at.strftime("%Y-%m-%d %H:%M")
+  = link_to '詳しく見る', content_path(content), class: "content__show"

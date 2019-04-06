@@ -7,7 +7,7 @@
     width: 760px;
     margin: 0 auto 10px;
     padding-top: 10px;
-    background-color: #d6e9ca;
+    background-color:#aacf53;
     color: #595857;
     position: relative;
     min-height: 200px;
@@ -18,15 +18,15 @@
       justify-content: space-between;
       &__title {
         font-size: 25px;
-        margin: 0 10px 10px;
+        margin-left: 10px;
         letter-spacing: 0.2rem;
       }
       &__user_name {
         height: 20px;
         line-height: 40px;
         flex-grow: 1;
-        font-size: 15px;
-        color: #b28c6e;
+        font-size: 12px;
+        color: #7b7c7d;
       }
       &__edit {
         color: #97a791;
@@ -47,12 +47,23 @@
       padding-bottom: 40px;
       line-height: 1.5rem;
     }
+    time {
+      position: absolute;
+      left: 5px;
+      bottom: 3px;
+      color: #7b7c7d;
+      span {
+        background-color: #ed6d3d;
+        color: white;
+        padding: 0 2px;
+      }
+    }
     &__show {
       font-size: 20px;
       position: absolute;
       right: 20px;
       bottom: 10px;
-      color: #007b43;
+      color: #ed6d3d;
       text-decoration: none;
     }
   }
