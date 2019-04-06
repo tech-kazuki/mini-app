@@ -4,7 +4,7 @@
       %h3.content-header__title
         = @content.title
       .content-header__user_name
-        = "Nickname：" + @content.user.nickname
+        = "@" + @content.user.nickname
       = link_to 'Edit', edit_content_path(@content), class: "content-header__edit" if user_signed_in? && current_user.id == @content.user.id
       = link_to 'Delete', content_path(@content), method: :delete, class: "content-header__delete" if user_signed_in? && current_user.id == @content.user.id
     .content__text
@@ -13,7 +13,7 @@
   .comment_form
     = form_with url: content_comments_path(@content) do |f|
       = f.text_area :comment, class: "comment_field", placeholder: "ご意見を書く" if user_signed_in?
-      = f.submit value: "ご意見", class: "button" if user_signed_in?
+      = f.submit value: "送る", class: "button" if user_signed_in?
   .comments
     %p.comments__title ご意見一覧
     .comment
